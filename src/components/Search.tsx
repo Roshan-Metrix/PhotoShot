@@ -11,7 +11,7 @@ export const Search = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} method="GET">
       <input
         type="search"
         placeholder="Enter to Search . . ."
