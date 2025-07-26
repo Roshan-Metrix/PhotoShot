@@ -47,8 +47,6 @@ npm run dev
 
 ![Photoshot Screenshot](./screenshot.png)
 
-![Photoshot video](./photoshot.mp4)
-
 ## License
 
 This project is licensed under the [MIT License](license.txt).
