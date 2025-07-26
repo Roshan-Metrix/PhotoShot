@@ -18,7 +18,7 @@ const ImageGallery: React.FC<Props> = ({ searchQuery }) => {
     useEffect(() => {
     // Fetch data from API
     const fetchImages = async () => {
-      const res = await fetch(`https://pixabay.com/api/?key=${apikey}&q=${searchQuery}&image_type=photo`)
+      await fetch(`https://pixabay.com/api/?key=${apikey}&q=${searchQuery}&image_type=photo`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response not ok");
