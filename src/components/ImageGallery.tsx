@@ -1,19 +1,24 @@
-import { useState, useEffect } from 'react';
+import React,{ useState, useEffect } from 'react';
 
-interface Img {
+type Img = {
   id: number;
   webformatURL: string;
   tags: string;
 }
 
-const apiURL = import.meta.env.VITE_API_URL;
+interface Props {
+  searchQuery : string;
+}
 
-export const ImageGallery = () => {
+const ImageGallery: React.FC<Props> = ({ searchQuery }) => {
   const [images, setImages] = useState<Img[]>([]);
+
+  const apikey = import.meta.env.VITE_API_KEY;
 
     useEffect(() => {
     // Fetch data from API
-    fetch(apiURL)
+    const fetchImages = async () => {
+      const res = await fetch(`https://pixabay.com/api/?key=${apikey}&q=${searchQuery}&image_type=photo`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response not ok");
@@ -25,8 +30,9 @@ export const ImageGallery = () => {
       })
       .catch((error) => {
         console.log(error.message)
-      });
-  }, []);
+      });}
+      fetchImages();
+  }, [searchQuery]);
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
       {images.map((image: Img) => (
@@ -34,9 +40,11 @@ export const ImageGallery = () => {
           <img
             src={image.webformatURL}
             alt={image.tags}
-            className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+            className="object-cover w-full h-full transition-transform duration-300 hover:scale-120"
           />
         </div>
       ))}
     </div>
   )};
+
+  export default ImageGallery;
