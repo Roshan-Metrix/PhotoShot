@@ -43,7 +43,7 @@ npm run dev
 - [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 
-## Screenshots And Video
+## Screenshot
 
 ![Photoshot Screenshot](./screenshot.png)
 
