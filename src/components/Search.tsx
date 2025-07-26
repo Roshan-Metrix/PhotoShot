@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { ChangeEvent, FormEvent } from 'react';
+import type { FormEvent } from 'react';
 
 interface Props {
   onSearch : (term:string) => void;
