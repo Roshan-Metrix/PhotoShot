@@ -1,28 +1,36 @@
+import React, { useState } from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
 
-export const Search = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+interface Props {
+  onSearch : (term:string) => void;
+}
+
+const Search: React.FC<Props> = ({ onSearch }) => {
+  const [search, setSearch] = useState('');
+
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    const target = event.target as HTMLFormElement;
-    const query = (target.querySelector('input[type="search"]') as HTMLInputElement)?.value;
-
-    if (query) {
-      console.log(`Searching for: ${query}`);
+    if(search.trim()){
+    onSearch(search);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} method="GET">
+    <form onSubmit={handleSubmit}>
       <input
-        type="search"
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
         placeholder="Enter to Search . . ."
         className="w-[30%] text-[20px] h-10 rounded p-2 border-2 my-2 mx-1 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-none placeholder:text-[17px]"
         autoFocus
       />
       <input
         type="submit"
-        value="Search"
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 cursor-pointer"
+        className="bg-blue-500 text-white px-6 py-[9px] mx-2 rounded hover:bg-blue-600 transition duration-300 cursor-pointer"
       />
     </form>
   );
 };
+
+export default Search;
