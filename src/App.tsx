@@ -1,4 +1,4 @@
-import './app.css'
+
 import Form from './components/Form'
 
 const App = () => {
