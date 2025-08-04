@@ -17,7 +17,7 @@ const Form: React.FC = () => {
     "Nature"
   ];
   return (
-    <div className="flex justify-center items-center h-full w-full py-15 px-5">
+    <div className="flex justify-center items-center h-full w-full py-10 px-5">
       <div className="bg-gray-300 w-[90%] h-auto rounded-lg shadow-lg text-center p-8">
         <h1 className="text-4xl font-bold p-8">
           PhotoShot
